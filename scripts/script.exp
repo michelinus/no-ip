@@ -153,18 +153,6 @@ expect -exact "Please enter the login/email string for no-ip.com  "             
 
 expect -exact "$username\r\nPlease enter the password for user '$username'  "   {send -- "$password\r" }
 
-
-expect {
-    "*Only one host"                         {    puts " one host"  }
-    -re {[0-9]+}                             {  
-                                                  set hosts $expect_out(0,string);
-                                                  Multiple_Hosts $hosts  $domains                                     
-                                             }
-}
-
-
-
-
 expect -exact "Please enter an update interval:\[30\]  " { send -- "$interval\r" }
 
 expect {
